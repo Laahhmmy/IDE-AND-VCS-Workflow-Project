@@ -4,10 +4,14 @@
 #include <iostream>
 using namespace std;
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'L';
-	cout << first << middle << last << endl;
+	double highway = 28.9;
+	double town = 23.5;
+	double gallons = 20;
+	double distanceHighway, distanceTown;
+	distanceHighway = gallons * highway;
+	distanceTown = gallons * town;
+	cout << "The distance the car can travel in the town is " << distanceTown << " miles." << endl;
+	cout << "The distance the car can travel on the highway is " << distanceHighway << " miles." << endl;
+
 	return 0;
 }
