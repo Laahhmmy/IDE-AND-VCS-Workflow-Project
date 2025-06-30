@@ -3,14 +3,19 @@
 
 #include <iostream>
 #include <iomanip>
+#include <random>
 
 // This program deplays a simple math problem and waits for the user to press ENTER before revealing the answer.
 using namespace std;
 int main() {
 	double x, y, answer;
 
-	x = 247; 
-	y = 129;
+	random_device rd; // Random number generator seed
+	mt19937 gen(rd()); // Initialize random number generator
+	uniform_int_distribution<> dist(100, 999); // Distribution for random numbers
+
+	x = dist(gen); 
+	y = dist(gen);
 	
 	answer = x + y;
 
