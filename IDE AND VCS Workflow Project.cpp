@@ -3,6 +3,8 @@
 
 using namespace std;  
 
+// In this program, it will calculate the amount of cups of sugar, butter, and flour needed to make a specified number of cookies that the user wants.
+
 int main() {  
 	const double sugarCups = 1.5; // cups of sugar per batch  
 	const double butterCups = 1.0; // cups of butter per batch  
