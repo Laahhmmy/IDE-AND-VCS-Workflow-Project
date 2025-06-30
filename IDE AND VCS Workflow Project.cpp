@@ -2,12 +2,22 @@
 //
 
 #include <iostream>
+#include <iomanip>
+
+
 using namespace std;
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'L';
-	cout << first << middle << last << endl;
-	return 0;
+	double x, y, answer;
+
+	x = 247; 
+	y = 129;
+	
+	answer = x + y;
+
+	cout << setw(10) << x << endl;
+	cout << setw(7) << "+" << y << endl;
+	cout << setw(10) << "----" << endl;
+	cout << setw(10) << answer << endl;
+		
+
 }
