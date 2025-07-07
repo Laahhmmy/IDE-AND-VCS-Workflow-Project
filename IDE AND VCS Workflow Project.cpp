@@ -3,6 +3,7 @@
 
 #include <iostream>
 using namespace std;
+// This program calculates the area of different geometric shapes based on user input.
 int main() {
 	
 	cout << "Geometry Calculator\n";
