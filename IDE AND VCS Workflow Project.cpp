@@ -10,7 +10,7 @@ int main() {
 	cin >> weight;
 
 	if (weight <= 0) {
-		cout << "Invalid weight. Please enter a non-negative value." << endl;
+		cout << "Invalid weight. Please enter a positive value above 0." << endl;
 		return 1; // Exit with an error code
 	} else if (weight > 20) {
 		cout << "Invalid weight. The maximum weight for a package is 20 kilograms." << endl;
@@ -26,11 +26,11 @@ int main() {
 	cout << fixed << setprecision(2) << showpoint;
 	if (weight <= 2) {
 		cout << "It will cost $" << distance / 500 * 1.10;
-	} else if (weight > 2 || weight <= 6) {
+	} else if (weight > 2 && weight <= 6) {
 		cout << "It will cost $" << distance / 500 * 2.20;
-	} else if (weight >6 || weight <= 10) {
+	} else if (weight >6 && weight <= 10) {
 		cout << "It will cost $" << distance / 500 * 3.70;
-	} else if (weight > 10 || weight <= 20) {
+	} else if (weight > 10 && weight <= 20) {
 		cout << "It will cost $" << distance / 500 * 4.80;
 	}
 	return 0;
