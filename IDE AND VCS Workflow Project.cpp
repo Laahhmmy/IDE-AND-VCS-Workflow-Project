@@ -53,3 +53,5 @@ int main() {
 		default:
 			cout << "Invalid choice. Please select a valid option (1-4)." << endl;
 }
+	return 0;
+}
