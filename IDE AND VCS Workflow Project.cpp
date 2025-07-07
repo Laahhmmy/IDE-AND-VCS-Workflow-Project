@@ -4,6 +4,9 @@
 #include <iostream>
 #include <iomanip> // For std::setprecision and std::showpoint
 using namespace std;
+
+// This program calculates the shipping cost for a package based on its weight and distance to be shipped.
+
 int main() {
 	cout << "What is the weight of the package in kilograms? ";
 	double weight;
