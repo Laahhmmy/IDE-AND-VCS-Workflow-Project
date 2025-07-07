@@ -19,7 +19,7 @@ int main() {
 		cout << "Invalid weight. The maximum weight for a package is 20 kilograms." << endl;
 		return 1; // Exit with an error code
 	}
-	cout << "What is the distance to be shipped in kilometers? ";
+	cout << "What is the distance to be shipped in miles? ";
 	double distance;
 	cin >> distance;
 	if (distance < 10 || distance > 3000) {
