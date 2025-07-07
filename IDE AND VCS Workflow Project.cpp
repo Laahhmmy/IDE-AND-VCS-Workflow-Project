@@ -3,6 +3,8 @@
 
 #include <iostream>
 using namespace std;
+// This program determines the number of days in a given month of a specified year.
+// Also created a program to check for leap years
 int main() {
 	cout << "Enter a month (1-12): ";
 	int month;
