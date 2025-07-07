@@ -4,15 +4,15 @@
 #include <iostream>
 using namespace std;
 int main() {
-	cout << "Enter a month (1-12): " << endl;
+	cout << "Enter a month (1-12): ";
 	int month;
 	cin >> month;
 	if (month < 1 || month > 12) {
-		cout << "Invalid month. Please enter a number between 1 and 12." << endl;
+		cout << "Invalid month. Please enter an integer between 1 and 12." << endl;
 		return 1; // Exit with an error code
 	}
 	
-	cout << "Enter a year: " << endl;
+	cout << "Enter a year: ";
 	int year;
 	cin >> year;
 	if (year < 1) {
