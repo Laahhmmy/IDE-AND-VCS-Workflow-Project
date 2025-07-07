@@ -19,43 +19,45 @@ int main() {
 			// Area of Circle
 			const double PI = 3.14159;
 			double radius;
+			
+			cout << "Enter the radius of the circle: ";
+			cin >> radius;
+			double areaCircle = PI * radius * radius;
 			if (radius < 0) {
 				cout << "Radius must be positive" << endl;
 				return 1; // Exit if invalid input
 			}
-			cout << "Enter the radius of the circle: ";
-			cin >> radius;
-			double areaCircle = PI * radius * radius;
 			cout << "The area of the circle is: " << areaCircle << endl;
 			break;
 		}
 		case 2: {
 			// Area of Rectangle
 			double length, width;
-			if (length < 0 || width < 0) {
-				cout << "Length and width must be positive" << endl;
-				return 1; // Exit if invalid input
-			}
 			cout << "Enter the length of the rectangle: ";
 			cin >> length;
 			cout << "Enter the width of the rectangle: ";
 			cin >> width;
 			double areaRectangle = length * width;
+			if (length < 0 || width < 0) {
+				cout << "Length and width must be positive" << endl;
+				return 1; // Exit if invalid input
+			}
 			cout << "The area of the rectangle is: " << areaRectangle << endl;
 			break;
 		}
 		case 3: {
 			// Area of Triangle
 			double base, height;
-			if (base < 0 || height < 0) {
-				cout << "Base and height must be positive" << endl;
-				return 1; // Exit if invalid input
-			}
+			
 			cout << "Enter the base of the triangle: ";
 			cin >> base;
 			cout << "Enter the height of the triangle: ";
 			cin >> height;
 			double areaTriangle = 0.5 * base * height;
+			if (base < 0 || height < 0) {
+				cout << "Base and height must be positive" << endl;
+				return 1; // Exit if invalid input
+			}
 			cout << "The area of the triangle is: " << areaTriangle << endl;
 			break;
 		}
