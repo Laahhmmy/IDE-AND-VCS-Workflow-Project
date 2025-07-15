@@ -2,7 +2,34 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 int main() {
-	
+	const string filename = "Lineup.txt";
+
+	ifstream infile;
+	infile.open(filename);
+	if (infile.fail()) {
+		cerr << "Could not find" << filename << endl;
+		return(1); // Exit with error code
+		
+		// Read the file line by line
+	}
+	string studentName;
+	while (getline(infile, studentName)) {
+		cout << studentName << endl; // Output each student's name
+		
+	}
+	string first = studentName;
+	string last = studentName;
+	if (studentName < first) {
+		first = studentName; // Update first if current name is smaller
+	}
+	if (studentName > last) {
+		last = studentName; // Update last if current name is larger
+	}
+
+
+
 }
