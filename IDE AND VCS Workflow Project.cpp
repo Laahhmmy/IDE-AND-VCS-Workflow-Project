@@ -1,5 +1,7 @@
 // IDE AND VCS Workflow Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// This program reads a file named "Lineup.txt" containing student names,
+// outputs each name, and determines the first and last names in alphabetical order.
 
 #include <iostream>
 #include <fstream>
