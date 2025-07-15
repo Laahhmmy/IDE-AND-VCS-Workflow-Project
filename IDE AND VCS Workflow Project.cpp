@@ -21,15 +21,23 @@ int main() {
 		cout << studentName << endl; // Output each student's name
 		
 	}
-	string first = studentName;
-	string last = studentName;
+	string first, last;
+
+	first = studentName;
+	last = studentName;
+
 	if (studentName < first) {
 		first = studentName; // Update first if current name is smaller
 	}
 	if (studentName > last) {
 		last = studentName; // Update last if current name is larger
 	}
+	infile.close(); // Close the file after reading
 
+	cout << "First student: " << first << endl; // Output the first student
+	cout << "Last student: " << last << endl; // Output the last student
+
+	return (0);
 
 
 }
