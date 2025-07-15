@@ -125,6 +125,9 @@
   <ItemGroup>
     <ClCompile Include="IDE AND VCS Workflow Project.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="LineUp.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
