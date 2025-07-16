@@ -4,10 +4,16 @@
 #include <iostream>
 using namespace std;
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'L';
-	cout << first << middle << last << endl;
-	return 0;
+	cout << "Pattern A" << endl;
+	const int n = 10;
+	int patternA = 1;
+	
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= i; j++) {
+			cout << "+";
+			patternA++;
+		}
+		cout << endl;
+	}
+
 }
