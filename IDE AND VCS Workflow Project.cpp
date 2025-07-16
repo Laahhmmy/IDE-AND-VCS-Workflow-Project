@@ -16,7 +16,6 @@ int main() {
 	do { cout << "Guess a random number between 0 and 100: ";
 		cin >> number;
 		attempts++;
-		cout << endl;
 		if (number == randomNumber) {
 			cout << "Congrats you guessed the correct number" << endl;
 			cout << "It took you " << attempts << " attempts to guess the number." << endl;
