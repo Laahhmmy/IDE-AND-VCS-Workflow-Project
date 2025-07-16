@@ -9,7 +9,10 @@
 using namespace std;
 int main() {
 	const string filename = "Lineup.txt";
-
+	string name;
+	string firstName = name;
+	string lastName = name;
+	int numberOfStudents = 1; // Initialize the number of students
 	ifstream infile;
 	infile.open(filename);
 	if (infile.fail()) {
@@ -18,22 +21,25 @@ int main() {
 		
 		// Read the file line by line
 	}
-	string studentName;
-	while (getline(infile, studentName)) {
-		cout << studentName << endl; // Output each student's name
-		
+	if (infile >> name) {
+		firstName = name; 
+		lastName = name; 
+		cout << name << endl; 
+		while (infile >> name) {
+			numberOfStudents++; 
+			cout << name << endl; 
+			if (name < firstName) {
+				firstName = name; 
+			}
+			if (name > lastName) {
+				lastName = name; 
+			}
+		}
 	}
-	int numberOfStudents = 0; // Variable to count the number of students
-	while (getline(infile, studentName)) {
-		numberOfStudents++; // Increment the count for each student name read
-	}
-
-	string first, last; // Variables to hold the first and last names in alphabetical order
-
 	
-	cout << "Number of students: " << numberOfStudents << endl; // Output the number of students
-	cout << "First student: " << first << endl; // Output the first student in alphabetical order
-	cout << "Last student: " << last << endl; // Output the last student in alphabetical order
+	cout << "Number of students: " << numberOfStudents << endl; 
+	cout << "First student: " << firstName << endl; 
+	cout << "Last student: " << lastName << endl; 
 
 	return (0);
 
