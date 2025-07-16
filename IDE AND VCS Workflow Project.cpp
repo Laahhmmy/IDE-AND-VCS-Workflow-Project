@@ -15,5 +15,12 @@ int main() {
 		}
 		cout << endl;
 	}
-
+	cout << "Pattern B" << endl;
+	for (int i = 1; i <= n; i++) {
+		for (int j = 10; j >= i; j--) {
+			cout << "+";
+			patternA--;
+		}
+		cout << endl;
+	}
 }
