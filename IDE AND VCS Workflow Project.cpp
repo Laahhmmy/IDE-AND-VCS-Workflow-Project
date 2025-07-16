@@ -20,7 +20,7 @@ int main() {
 		return 1; 
 
 	}
-	double population = startingNumber; 
+	int population = startingNumber;
 	for (int day = 1; day <= daysToMultiply; ++day) {
 		population += population * (dailyIncrease / 100.0); 
 		cout << "Day " << day << ": " << population << " organisms" << endl; 
