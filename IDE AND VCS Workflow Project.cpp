@@ -10,21 +10,24 @@ int main() {
 	random_device rd;
 	mt19937 gen(rd()); // Initialize random number generator with a random seed
 	uniform_int_distribution<> dist(0, 100);
-	cout << "Guess a random number: ";
-	cin >> number;
-
-
-	if (number == randomNumber) {
-		cout << "Congrats you guessed the correct number";
-	} 
-	else if (number > randomNumber) {
-		cout << "Too high, try again.";
+	randomNumber = dist(gen); // Generate a random number between 0 and 100
+	do { cout << "Guess a random number between 0 and 100: ";
+		cin >> number;
+		if (number == randomNumber) {
+			cout << "Congrats you guessed the correct number" << endl;
 		}
-	else if (number < randomNumber) {
-		cout << "Too low, try again.";
+		else if (number > randomNumber) {
+			cout << "Too high, try again." << endl;
 		}
-	else {
-		cout << "Invalid input, please enter a number between 0 and 100.";
-	}
+		else if (number < randomNumber) {
+			cout << "Too low, try again." << endl;
+	
+		}
+		else {
+			cout << "Invalid input, please enter a number between 0 and 100." << endl;
+		}
+		
+		} while (number != randomNumber);
+	
 
 }
