@@ -28,7 +28,7 @@ int main() {
 			cout << "Too low, try again." << endl;
 	
 		}
-		else {
+		else if (number < 0 || number > 100) {
 			cout << "Invalid input, please enter a number between 0 and 100." << endl;
 		}
 		
