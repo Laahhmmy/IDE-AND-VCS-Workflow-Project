@@ -11,6 +11,10 @@ void getLength_Width(double& length, double& width) {
 	cin >> length;
 	cout << "Enter the width: ";
 	cin >> width;
+	if (length <= 0 || width <= 0) {
+		cout << "Length and width must be positive numbers." << endl;
+		exit(1); // Exit the program if invalid input
+	}
 }
 void calculateArea(double length, double width, double& area) {
 	area = length * width;
@@ -22,6 +26,19 @@ void displayProperties(double length, double width, double area, double perimete
 	cout << fixed << setprecision(2);
 	cout << "Area: " << area << endl;
 	cout << "Perimeter: " << perimeter << endl;
+	cout << "Do you want to process another rectangle? (type y for yes, any other key for no): ";
+	char choice;
+	cin >> choice;
+	if (choice == 'y' || choice == 'Y') {
+		double newLength, newWidth;
+		getLength_Width(newLength, newWidth);
+		double newArea, newPerimeter;
+		calculateArea(newLength, newWidth, newArea);
+		calcPerimeter(newLength, newWidth, newPerimeter);
+		displayProperties(newLength, newWidth, newArea, newPerimeter);
+	} else {
+		cout << "Exiting the program." << endl;
+	}
 }
 
 int main() {
