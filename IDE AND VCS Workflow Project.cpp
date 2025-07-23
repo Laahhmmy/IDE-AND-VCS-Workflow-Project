@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib> // For exit function
 using namespace std;
 
 
