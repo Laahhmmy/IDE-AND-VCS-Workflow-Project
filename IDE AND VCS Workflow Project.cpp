@@ -3,6 +3,11 @@
 
 #include <iostream>
 using namespace std;
+
+bool isLower(double, double);
+bool isHigher(double, double);
+void getScore();
+
 int main() {
 	char first, middle, last;
 	first = 'L';
@@ -11,3 +16,5 @@ int main() {
 	cout << first << middle << last << endl;
 	return 0;
 }
+
+void getScore() {}
