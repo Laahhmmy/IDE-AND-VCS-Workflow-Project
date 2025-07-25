@@ -51,23 +51,21 @@ void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours
 	cout << "Total cost of the job: " << paintCharge + laborCharge << endl;
 }
 
-double gallonsForRoom(double squareFeet) {
-	const double gallonsPerSquareFoot = 1 / 110; // 1 gallon covers 110 square feet
-	return squareFeet * gallonsPerSquareFoot;
-}
 int main() {
-	const double gallonsPerSquareFoot = 1 / 110;
-	const double laborPerSquareFoot = 8 / 110;
+	const double gallonsPerSquareFoot = 1.0 / 110.0;
+	const double laborPerSquareFoot = 8.0 / 110.0;
 	const double LaborChargePerHour = 25.00;
 	double paintCharge = 0, laborCharge = 0, gallonsNeeded = 0, laborHours = 0;
 	int rooms = getRooms(); // Get the number of rooms
-	for (int i = 1; i <= rooms; i++) {
-		double squareFeet = getSqFt(i); // Get square footage for each room
-		double costPerGallon = getPricePerGallon(i); // Get cost per gallon for each room
-		gallonsNeeded += gallonsForRoom(squareFeet); // Calculate total gallons needed
-		paintCharge += costPerGallon * gallonsForRoom(squareFeet); // Calculate total paint charge
-		laborHours += squareFeet * laborPerSquareFoot; // Calculate total labor hours
-		laborCharge += laborHours * LaborChargePerHour; // Calculate total labor charge
+	for (int n = 1; n <= rooms; n++) {
+		double squareFeet = getSqFt(n); // Get square footage for each room
+		double costPerGallon = getPricePerGallon(n); // Get cost per gallon for each room
+		double gallons = getGallonsPerRoom(squareFeet); // Calculate gallons needed for the room
+		double labor = squareFeet * laborPerSquareFoot; // Calculate labor hours for the room
+		gallonsNeeded += gallons; // Calculate total gallons needed
+		paintCharge += costPerGallon * getGallonsPerRoom(squareFeet); // Calculate total paint charge
+		laborHours += labor; // Calculate total labor hours
+		laborCharge += labor * LaborChargePerHour; // Calculate total labor charge
 	}
 	displayEstimate(gallonsNeeded, paintCharge, laborHours, laborCharge); // Display the estimate
 	return 0;
