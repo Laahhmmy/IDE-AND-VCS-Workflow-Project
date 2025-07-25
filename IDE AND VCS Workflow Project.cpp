@@ -49,9 +49,9 @@ void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours
 	cout << fixed << setprecision(2);
 	cout << "Gallons of paint to purchase: " << gallonsNeeded << endl;
 	cout << "Number of hours of labor: " << laborHours << endl;
-	cout << "Cost of paint: " << paintCharge << endl;
-	cout << "Cost of labor: " << laborCharge << endl;
-	cout << "Total cost of the job: " << paintCharge + laborCharge << endl;
+	cout << "Cost of paint: " << "$" << paintCharge << endl;
+	cout << "Cost of labor: " << "$" << laborCharge << endl;
+	cout << "Total cost of the job: " << "$" << paintCharge + laborCharge << endl;
 }
 
 int main() {
@@ -69,6 +69,8 @@ int main() {
 		laborHours += labor; // Calculate total labor hours
 		laborCharge += labor * LaborChargePerHour; // Calculate total labor charge
 	}
+	cout << endl; 
+	cout << "Estimate for Painting " << rooms << " Rooms" << endl;
 	displayEstimate(gallonsNeeded, paintCharge, laborHours, laborCharge); // Display the estimate
 	return 0;
 }
