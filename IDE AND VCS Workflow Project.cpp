@@ -1,12 +1,13 @@
 // IDE AND VCS Workflow Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+// This program asks the user for the number of rooms to be painted, the square footage of wall space in each room, and the cost of paint per gallon.
+// It then calculates the total gallons of paint needed, the cost of paint, the number of hours of labor required, and the total cost of the job.
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
 int getRooms();
-int getRooms() {
+int getRooms() { // Function to get the number of rooms from the user
 	cout << "How many rooms are there? ";
 	int rooms;
 	cin >> rooms;
@@ -20,7 +21,7 @@ int getRooms() {
 	}
 }
 double getSqFt(int roomNumber);
-double getSqFt(int roomNumber) {
+double getSqFt(int roomNumber) { // Function to get the square footage of wall space in a room
 	cout << "How many square feet of wall space in room number " << roomNumber << "? ";
 	double wallSpace;
 	cin >> wallSpace;
@@ -31,7 +32,7 @@ double getSqFt(int roomNumber) {
 	return wallSpace; // Return the valid square footage
 }
 double getPricePerGallon(int roomNumber);
-double getPricePerGallon(int roomNumber) {
+double getPricePerGallon(int roomNumber) { // Function to get the cost of paint per gallon for a room
 	cout << "What is the cost of paint per gallon in room number " << roomNumber << "? ";
 	double costPerGallon;
 	cin >> costPerGallon;
@@ -41,11 +42,11 @@ double getPricePerGallon(int roomNumber) {
 	}
 	return costPerGallon;
 }
-double getGallonsPerRoom (double squareFeet) {
+double getGallonsPerRoom(double squareFeet) { // Function to calculate the gallons of paint needed for a room based on square footage
 	const double gallonsPerSquareFoot = 1.0 / 110.0; // 1 gallon covers 110 square feet
-	return ceil(squareFeet * gallonsPerSquareFoot);
+	return ceil(squareFeet * gallonsPerSquareFoot); // Use ceil to round up to the nearest whole gallon
 }
-void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours, double laborCharge) {
+void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours, double laborCharge) { // Function to display the estimate of the painting job
 	cout << fixed << setprecision(2);
 	cout << "Gallons of paint to purchase: " << gallonsNeeded << endl;
 	cout << "Number of hours of labor: " << laborHours << endl;
@@ -54,7 +55,7 @@ void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours
 	cout << "Total cost of the job: " << "$" << paintCharge + laborCharge << endl;
 }
 
-int main() {
+int main() { // Main function to execute the program
 	const double laborPerSquareFoot = 8.0 / 110.0;
 	const double LaborChargePerHour = 25.00;
 	double paintCharge = 0, laborCharge = 0, gallonsNeeded = 0, laborHours = 0;
