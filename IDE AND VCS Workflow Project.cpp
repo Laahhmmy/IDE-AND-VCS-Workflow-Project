@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 int getRooms();
 int getRooms() {
@@ -17,9 +18,9 @@ int getRooms() {
 
 	}
 }
-double getSqFt(int roonNumber);
-double getSqFt(int roonNumber) {
-	cout << "How many square feet of wall space in room number " << roonNumber << "? ";
+double getSqFt(int roomNumber);
+double getSqFt(int roomNumber) {
+	cout << "How many square feet of wall space in room number " << roomNumber << "? ";
 	double wallSpace;
 	cin >> wallSpace;
 	while (wallSpace <= 0) {
@@ -40,19 +41,19 @@ double getPricePerGallon(int roomNumber) {
 	return costPerGallon;
 }
 double getGallonsPerRoom (double squareFeet) {
-	const double gallonsPerSquareFoot = 1 / 110; // 1 gallon covers 110 square feet
+	const double gallonsPerSquareFoot = 1.0 / 110.0; // 1 gallon covers 110 square feet
 	return squareFeet * gallonsPerSquareFoot;
 }
 void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours, double laborCharge) {
+	cout << fixed << setprecision(2);
 	cout << "Gallons of paint to purchase: " << gallonsNeeded << endl;
 	cout << "Number of hours of labor: " << laborHours << endl;
-	cout << "Cost off paint: " << paintCharge << endl;
+	cout << "Cost of paint: " << paintCharge << endl;
 	cout << "Cost of labor: " << laborCharge << endl;
 	cout << "Total cost of the job: " << paintCharge + laborCharge << endl;
 }
 
 int main() {
-	const double gallonsPerSquareFoot = 1.0 / 110.0;
 	const double laborPerSquareFoot = 8.0 / 110.0;
 	const double LaborChargePerHour = 25.00;
 	double paintCharge = 0, laborCharge = 0, gallonsNeeded = 0, laborHours = 0;
@@ -63,7 +64,7 @@ int main() {
 		double gallons = getGallonsPerRoom(squareFeet); // Calculate gallons needed for the room
 		double labor = squareFeet * laborPerSquareFoot; // Calculate labor hours for the room
 		gallonsNeeded += gallons; // Calculate total gallons needed
-		paintCharge += costPerGallon * getGallonsPerRoom(squareFeet); // Calculate total paint charge
+		paintCharge += costPerGallon * gallons; // Calculate total paint charge
 		laborHours += labor; // Calculate total labor hours
 		laborCharge += labor * LaborChargePerHour; // Calculate total labor charge
 	}
