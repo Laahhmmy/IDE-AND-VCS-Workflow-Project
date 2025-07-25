@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 int getRooms();
 int getRooms() {
@@ -42,7 +43,7 @@ double getPricePerGallon(int roomNumber) {
 }
 double getGallonsPerRoom (double squareFeet) {
 	const double gallonsPerSquareFoot = 1.0 / 110.0; // 1 gallon covers 110 square feet
-	return squareFeet * gallonsPerSquareFoot;
+	return ceil(squareFeet * gallonsPerSquareFoot);
 }
 void displayEstimate(double gallonsNeeded, double paintCharge, double laborHours, double laborCharge) {
 	cout << fixed << setprecision(2);
