@@ -1,26 +1,27 @@
 // IDE AND VCS Workflow Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// This program collects information about student's exam answers, grades the exam, and generates a report of missed questions and percentage correct.
 
 #include <iostream>
-#include <fstream>
-#include <string>
+#include <fstream> // For file operations
+#include <string> // For string operations
 #include <iomanip> // For setw
 using namespace std;
 
-const int numQuestions = 20;
-const string fileName = "CorrectAnswers.txt";
-const string studentFileName = "StudentAnswers.txt";
-void getAnswers(ifstream& inFile, char answers[]);
-int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2], int missed[]);
-void writeReport(const char incorrect[][2], const int missed[], int numMissed);
+const int numQuestions = 20; // Set constant for Number of questions in the exam
+const string fileName = "CorrectAnswers.txt"; // File containing correct answers
+const string studentFileName = "StudentAnswers.txt"; // File containing student's answers
+void getAnswers(ifstream& inFile, char answers[]); // Function to read answers from a file
+int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2], int missed[]); // Function to grade the exam and find incorrect answers
+void writeReport(const char incorrect[][2], const int missed[], int numMissed); // Function to write the report of missed questions and percentage correct
 
-int main() {
-	ifstream inFile(fileName);
+int main() { // Main function to execute the program
+	ifstream inFile(fileName); // Open the file containing correct answers
 	if (inFile.fail()) {
 		cerr << "Error opening file: " << fileName << endl;
 		return 1;
 	}
-	ifstream studentFile(studentFileName);
+	ifstream studentFile(studentFileName); // Open the file containing student's answers
 	if (studentFile.fail()) {
 		cerr << "Error opening file: " << studentFileName << endl;
 		return 1;
@@ -55,6 +56,7 @@ int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2]
 	return numMissed;
 }
 void writeReport(const char incorrect[][2], const int missed[], int numMissed) {
+	cout << "Exam Report Details" << endl;
 	cout << "Questions Missed: " << numMissed << endl;
 	double percent = 100.0 * (numQuestions - numMissed) / numQuestions;
 	if (numMissed > 0) {
