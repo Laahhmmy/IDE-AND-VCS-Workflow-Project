@@ -10,9 +10,9 @@ using namespace std;
 const int numQuestions = 20;
 const string fileName = "CorrectAnswers.txt";
 const string studentFileName = "StudentAnswers.txt";
-void getAnswers(string& inFile, char answers[]);
-int gradeExam(const char correct[], const char studentAnswers[], char wrong[], int missed[]);
-void writeReport(const char incorrect[], const int missed[], int numMissed);
+void getAnswers(ifstream& inFile, char answers[]);
+int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2], int missed[]);
+void writeReport(const char incorrect[][2], const int missed[], int numMissed);
 
 int main() {
 	ifstream inFile(fileName);
@@ -27,7 +27,7 @@ int main() {
 	}
 	char correctAnswers[numQuestions];
 	char studentAnswers[numQuestions];
-	char wrongAnswers[numQuestions]; // To store incorrect answers
+	char wrongAnswers[numQuestions][2]; // To store incorrect answers
 	int missedQuestions[numQuestions]; // To store question numbers of missed answers
 
 	getAnswers(inFile, correctAnswers);
@@ -36,24 +36,25 @@ int main() {
 	writeReport(wrongAnswers, missedQuestions, numMissed);
 
 }
-void getAnswers(string& inFile, char answers[]) {
+void getAnswers(ifstream& inFile, char answers[]) {
 	for (int i = 0; i < numQuestions; i++) {
 		inFile >> answers[i];
 	}
 
 }
-int gradeExam(const char correct[], const char studentAnswers[], char wrong[], int missed[]) {
+int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2], int missed[]) {
 	int numMissed = 0;
 	for (int i = 0; i < numQuestions; i++) {
 		if (studentAnswers[i] != correct[i]) {
-			wrong[numMissed] = studentAnswers[i];
+			wrong[numMissed][1] = studentAnswers[i];
 			missed[numMissed] = i + 1; // Store question number (1-based index)
+			wrong[numMissed][0] = correct[i];
 			numMissed++;
 		}
 	}
 	return numMissed;
 }
-void writeReport(const char incorrect[], const int missed[], int numMissed) {
+void writeReport(const char incorrect[][2], const int missed[], int numMissed) {
 	cout << "Questions Missed: " << numMissed << endl;
 	double percent = (numQuestions - numMissed) / static_cast<double>(numQuestions) * 100;	
 	if (numMissed > 0) {
