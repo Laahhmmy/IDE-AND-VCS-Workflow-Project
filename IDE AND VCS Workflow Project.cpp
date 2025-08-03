@@ -47,7 +47,7 @@ int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2]
 	for (int i = 0; i < numQuestions; i++) {
 		if (studentAnswers[i] != correct[i]) {
 			wrong[numMissed][1] = studentAnswers[i];
-			missed[numMissed] = i + 1; // Store question number (1-based index)
+			missed[numMissed] = i; 
 			wrong[numMissed][0] = correct[i];
 			numMissed++;
 		}
