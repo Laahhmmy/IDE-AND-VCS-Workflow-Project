@@ -2,12 +2,15 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
+
+const int numQuestions = 20;
+
+void getAnswers(string& inFile, char answers[]);
+int gradeExam(const char correct[], const char studentAnswers[], char wrong[], int numberMissed[])
+
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'L';
-	cout << first << middle << last << endl;
-	return 0;
+	
 }
