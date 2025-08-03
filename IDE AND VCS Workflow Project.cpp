@@ -56,7 +56,7 @@ int gradeExam(const char correct[], const char studentAnswers[], char wrong[][2]
 }
 void writeReport(const char incorrect[][2], const int missed[], int numMissed) {
 	cout << "Questions Missed: " << numMissed << endl;
-	double percent = (numQuestions - numMissed) / static_cast<double>(numQuestions) * 100;	
+	double percent = (numQuestions - numMissed) / numQuestions * 100.0;	
 	if (numMissed > 0) {
 		cout << "Question  Correct  Student\n";
 		for (int i = 0; i < numMissed; ++i) {
