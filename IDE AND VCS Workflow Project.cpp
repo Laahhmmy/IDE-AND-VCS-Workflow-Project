@@ -86,7 +86,7 @@ void getLocation(int& row, int& col, const char board[3][3]) {
     while (true) {
         cout << "Enter row number it must be (1-3): ";
         cin >> row;
-        cout << "Enter column row number it must be (1-3): ";
+        cout << "Enter column number it must be (1-3): ";
         cin >> col;
 
         row--; 
