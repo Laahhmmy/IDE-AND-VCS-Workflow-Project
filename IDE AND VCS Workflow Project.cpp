@@ -6,6 +6,7 @@ using namespace std;
 
 void initializeBoard(char board[3][3]);
 void displayBoard(const char board[3][3]);
+bool placeToken(char board[3][3], int row, int col, char token);
 
 int main() {
 	char board[3][3]; // Declare the Tic Tac Toe board
@@ -33,4 +34,12 @@ void displayBoard(const char board[3][3]) {
 		}
 		cout << endl; // New line after each row
 	}
+}
+bool placeToken(char board[3][3], int row, int col, char token) {
+	// Check if the position is valid and empty
+	if (row >= 1 && row < 4 && col >= 1 && col < 4 && board[row][col] == '*') {
+		board[row][col] = token; // Place the token
+		return true; // Return true if placement was successful
+	} 
+	return false; // Return false if placement failed
 }
