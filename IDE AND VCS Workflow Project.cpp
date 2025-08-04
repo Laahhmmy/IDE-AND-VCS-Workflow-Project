@@ -35,7 +35,7 @@ int main() { // Main function to execute the program
 	getAnswers(studentFile, studentAnswers);
 	int numMissed = gradeExam(correctAnswers, studentAnswers, wrongAnswers, missedQuestions);
 	writeReport(wrongAnswers, missedQuestions, numMissed);
-
+	return 0;
 }
 void getAnswers(ifstream& inFile, char answers[]) {
 	for (int i = 0; i < numQuestions; i++) {
