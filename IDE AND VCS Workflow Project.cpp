@@ -8,53 +8,53 @@
 #include <fstream>
 using namespace std;
 
-const string teamsFile = "teams.txt";
-const string winnersFile = "WorldSeriesWinners.txt";
-void getTeams(ifstream& teamsFile, vector<string>& teams);
-int findWinners(const string& teamName, vector<string>& winners);
+const string teamsFile = "teams.txt"; // File containing team names
+const string winnersFile = "WorldSeriesWinners.txt"; // File containing World Series winners
+void getTeams(ifstream& teamsFile, vector<string>& teams); // Function to read team names from a file
+int FindWinners(const string& teamName, vector<string>& winners); // Function to find the number of wins for a given team
 
-int main() {
-	vector<string> teams;
-	vector<string> winners;
-	ifstream inFile(teamsFile);
-	if (inFile.fail()) {
+int main() { // Main function to execute the program
+	vector<string> teams; // Vector to store team names
+	vector<string> winners; // Vector to store World Series winners
+	ifstream inFile(teamsFile); // Open the teams file
+	if (inFile.fail()) { // Check if the teams file can be opened
 		cerr << "Error opening file: " << teamsFile << endl;
 		return 1;
 	}
-	ifstream winnersInFile(winnersFile);
-	if (winnersInFile.fail()) {
+	ifstream winnersInFile(winnersFile); // Open the winners file
+	if (winnersInFile.fail()) { // Check if the winners file can be opened
 		cerr << "Error opening file: " << winnersFile << endl;
 		return 1;
 	}
-	getTeams(inFile, teams);
-	getTeams(winnersInFile, winners);
-	cout << "Team Names:" << endl;
-	for (const auto& team : teams) {
+	getTeams(inFile, teams); // Read team names from the file
+	getTeams(winnersInFile, winners); // Read World Series winners from the file
+	cout << "Team Names:" << endl; 
+	for (const auto& team : teams) { // Display the team names
 		cout << team << endl;
 	}
 	string teamName;
-	cout << "Enter the name of a team (enter quit to end): " << endl;
+	cout << "\nEnter the name of a team (enter quit to end): " << endl;
 	getline(cin, teamName);
 	while (teamName != "quit") {
-		int count = findWinners(teamName, winners);
-		cout << "The team " << teamName << " has won the World Series " << count << " times." << endl;
+		int count = FindWinners(teamName, winners);
+		cout << "\nThe team " << teamName << " has won the World Series " << count << " times." << endl;
 		cout << "Enter the name of a team (enter quit to end): " << endl;
 		getline(cin, teamName);
 	}
 	return 0;
 }
-void getTeams(ifstream& teamsFile, vector<string>& teams) {
+void getTeams(ifstream& teamsFile, vector<string>& teams) { 
 	string team;
-	while (getline(teamsFile, team)) {
-		teams.push_back(team);
+	while (getline(teamsFile, team)) { // Read each line from the file
+		teams.push_back(team); // Add the team name to the vector
 	}
 }
-int findWinners(ifstream& winnersFile, vector<string>& winners) {
-	string winner;
+int FindWinners(const string& teamName, vector<string>& winners) {
 	int count = 0;
-	while (getline(winnersFile, winner)) {
-		winners.push_back(winner);
-		count++;
-	}
+	for (const string& winner : winners) { // Iterate through the winners vector
+		if (winner == teamName) {
+			count++;
+		}
+}
 	return count;
 }
