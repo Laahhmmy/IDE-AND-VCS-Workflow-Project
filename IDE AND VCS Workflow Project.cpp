@@ -1,37 +1,38 @@
 ﻿// IDE AND VCS Workflow Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+// This program implements a simple Tic-Tac-Toe game for two players using a 3x3 board.
+// Players take turns placing their tokens (X and O) on the board until one player wins or the game ends in a tie.
 #include <iostream>
 #include <string>
 using namespace std;
 
-const string play = "play";
-const string tie = "tie";
+const string play = "play"; // Game state constants
+const string tie = "tie"; 
 const string winner = "winner";
 const string noWin = "nowinner";
 const string Xwins = "X wins";
 const string Owins = "O wins";
 
-void initializeBoard(char board[3][3]);
-void displayBoard(const char board[3][3]);
-void placeToken(char board[3][3], char token);
-void getLocation(int& row, int& col, const char board[3][3]);
-string getBoardState(char board[3][3], char token);
-string checkForWinner(char board[3][3], char token);
+void initializeBoard(char board[3][3]); // Initializes the game board with empty cells
+void displayBoard(const char board[3][3]); // Displays the current state of the game board
+void placeToken(char board[3][3], char token); // Places a player's token on the board at the specified location
+void getLocation(int& row, int& col, const char board[3][3]); // Gets the row and column from the player for placing their token
+string getBoardState(char board[3][3], char token); //  Determines the current state of the board
+string checkForWinner(char board[3][3], char token); // Checks if the specified player has won the game
 
 
 
 int main() {
-    char board[3][3];
-    char player1_token = 'X';
-    char player2_token = 'O';
-    string boardState = play;
+	char board[3][3]; // 3x3 game board
+	char player1_token = 'X'; // Player 1's token
+	char player2_token = 'O'; // Player 2's token
+	string boardState = play; // Current state of the game
 
-    initializeBoard(board);
-    displayBoard(board);
+	initializeBoard(board); // Initialize the game board
+	displayBoard(board);// Display the initial state of the board
 
-    while (boardState == play) {
-        cout << "Player 1's turn (X):\n";
+    while (boardState == play) { // Loop until the game is over
+		cout << "Player 1's turn (X):\n"; // Print Player 1's turn to place their token
         placeToken(board, player1_token);
         displayBoard(board);
         boardState = getBoardState(board, player1_token);
@@ -43,16 +44,16 @@ int main() {
         boardState = getBoardState(board, player2_token);
     }
     }
-    if (boardState == Xwins) {
+	if (boardState == Xwins) { // Check if Player 1 has won
         cout << "Player 1 (X) wins! Congratulations!\n";
     }
-    else if (boardState == Owins) {
+	else if (boardState == Owins) { // Check if Player 2 has won
         cout << "Player 2 (O) wins! Congratulations!\n";
     }
-    else if (boardState == tie) {
+	else if (boardState == tie) { // Check if the game ended in a tie
         cout << "It's a tie! Well played both!\n";
     }
-
+    return 0;
 
 }
 
