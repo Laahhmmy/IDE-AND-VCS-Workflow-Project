@@ -62,9 +62,11 @@ void initializeBoard(char board[3][3]) {
             board[i][j] = '*';
 }
 void displayBoard(const char board[3][3]) {
-    cout << "\n  1 2 3\n";
+    cout << "\n    1 2 3\n";
+	cout << "   -------\n";
     for (int i = 0; i < 3; i++) {
         cout << i + 1 << " ";
+		cout << "| ";
         for (int j = 0; j < 3; j++) {
             cout << board[i][j];
             if (j < 2) cout << " ";
