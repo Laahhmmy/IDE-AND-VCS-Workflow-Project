@@ -31,17 +31,31 @@ int main() {
     displayBoard(board);
 
     while (boardState == play) {
+        cout << "Player 1's turn (X):\n";
         placeToken(board, player1_token);
         displayBoard(board);
         boardState = getBoardState(board, player1_token);
         if (boardState != play) break;
-
+        if (boardState == play) {
+        cout << "Player 2's turn (O):\n";
         placeToken(board, player2_token);
         displayBoard(board);
         boardState = getBoardState(board, player2_token);
-
     }
+    }
+    if (boardState == Xwins) {
+        cout << "Player 1 (X) wins! Congratulations!\n";
+    }
+    else if (boardState == Owins) {
+        cout << "Player 2 (O) wins! Congratulations!\n";
+    }
+    else if (boardState == tie) {
+        cout << "It's a tie! Well played both!\n";
+    }
+
+
 }
+
 void initializeBoard(char board[3][3]) {
     for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++)
@@ -67,12 +81,12 @@ void placeToken(char board[3][3], char token) {
 
 void getLocation(int& row, int& col, const char board[3][3]) {
     while (true) {
-        cout << "Enter row (1-3): ";
+        cout << "Enter row number it must be (1-3): ";
         cin >> row;
-        cout << "Enter column (1-3): ";
+        cout << "Enter column row number it must be (1-3): ";
         cin >> col;
 
-        row--; // zero-based
+        row--; 
         col--;
 
         if (row < 0 || row > 2 || col < 0 || col > 2)
